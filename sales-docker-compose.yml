@@ -7,7 +7,7 @@ services:
     ports: 
       - "8082:8082"
     environment:
-      - TS_AUTHKEY=tskey-auth-kfjNBiH3ne11CNTRL-BbUu8vEXzQF9nQBaN4JvQFXDWysZSLbg
+      - TS_AUTHKEY=${TS_AUTHKEY}
       - TS_STATE_DIR=/var/lib/tailscale
       - TS_USERSPACE=true
       - TS_ACCEPT_DNS=true
@@ -52,6 +52,7 @@ services:
     network_mode: "service:tailscale"
     volumes:
       - /opt/zeus/sales:/app/data
+      - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
     env_file:
       - stack.env
     depends_on:

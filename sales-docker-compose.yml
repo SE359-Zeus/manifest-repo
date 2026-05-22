@@ -23,7 +23,7 @@ services:
 
   # 2. One-shot migration job
   sales-migrate:
-    image: ghcr.io/se359-zeus/zeus-be/sales:v9
+    image: ghcr.io/se359-zeus/zeus-be/sales:v10
     command: ["./migrate", "-db", "/app/data/sales.db"]
     volumes:
       - /opt/zeus/sales:/app/data

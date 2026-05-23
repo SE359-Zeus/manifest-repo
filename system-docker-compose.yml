@@ -53,6 +53,7 @@ services:
     volumes:
       - /opt/zeus/system:/app/data
       - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
+      - /opt/zeus/jwt_private.pem:/app/jwt_private.pem:ro
     env_file:
       - stack.env
     depends_on:

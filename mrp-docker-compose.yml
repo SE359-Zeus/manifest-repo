@@ -35,7 +35,6 @@ services:
     command: ["./seeder", "-db", "/app/data/mrp.db"]
     volumes:
       - /opt/zeus/mrp:/app/data
-      - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
     depends_on:
       mrp-migrate:
         condition: service_completed_successfully
@@ -53,6 +52,7 @@ services:
     network_mode: "service:tailscale"
     volumes:
       - /opt/zeus/mrp:/app/data
+      - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
     env_file:
       - stack.env
     depends_on:

@@ -54,6 +54,7 @@ services:
       - /opt/zeus/system:/app/data
       - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
       - /opt/zeus/jwt_private.pem:/app/jwt_private.pem:ro
+      - /opt/zeus/system/templates:/app/templates:ro
     env_file:
       - stack.env
     depends_on:

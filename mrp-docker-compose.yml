@@ -32,9 +32,10 @@ services:
   # 3. One-shot seeder job
   mrp-seed:
     image: ghcr.io/se359-zeus/zeus-be/mrp:v11
-    command: ["./seeder", "-db", "/app/data/mrp.db"]
+    command: ["./seeder", "-db", "/app/data/mrp.db", "-manifest", "/app/contracts/scm-manifest.json"]
     volumes:
       - /opt/zeus/mrp:/app/data
+      - /opt/zeus/contracts:/app/contracts:ro
     depends_on:
       mrp-migrate:
         condition: service_completed_successfully
@@ -53,6 +54,7 @@ services:
     volumes:
       - /opt/zeus/mrp:/app/data
       - /opt/zeus/jwt_public.pem:/app/jwt_public.pem:ro
+      - /opt/zeus/contracts:/app/contracts:ro
     env_file:
       - stack.env
     depends_on:

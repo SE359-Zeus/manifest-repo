@@ -32,9 +32,10 @@ services:
   # 3. One-shot seeder job
   scm-seed:
     image: ghcr.io/se359-zeus/zeus-be/scm:v32
-    command: ["./seeder", "-db", "/app/data/scm.db"]
+    command: ["./seeder", "-db", "/app/data/scm.db", "-manifest-out", "/app/contracts/scm-manifest.json"]
     volumes:
       - /opt/zeus/scm:/app/data
+      - /opt/zeus/contracts:/app/contracts
     depends_on:
       scm-migrate:
         condition: service_completed_successfully

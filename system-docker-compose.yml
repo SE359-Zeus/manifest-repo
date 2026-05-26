@@ -24,6 +24,7 @@ services:
   # 2. One-shot migration job
   system-migrate:
     image: ghcr.io/se359-zeus/zeus-be/system:v24
+    user: "1001:1001"
     command: ["./migrate", "-db", "/app/data/system.db"]
     volumes:
       - /opt/zeus/system:/app/data
@@ -32,6 +33,7 @@ services:
   # 3. One-shot seeder job
   system-seed:
     image: ghcr.io/se359-zeus/zeus-be/system:v24
+    user: "1001:1001"
     command: ["./seeder", "-db", "/app/data/system.db"]
     volumes:
       - /opt/zeus/system:/app/data
@@ -49,6 +51,7 @@ services:
   # 5. System  backend server
   system-be:
     image: ghcr.io/se359-zeus/zeus-be/system:v24
+    user: "1001:1001"
     network_mode: "service:tailscale"
     volumes:
       - /opt/zeus/system:/app/data

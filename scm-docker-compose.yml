@@ -23,7 +23,7 @@ services:
 
   # 2. One-shot migration job
   scm-migrate:
-    image: ghcr.io/se359-zeus/zeus-be/scm:v58
+    image: ghcr.io/se359-zeus/zeus-be/scm:v59
     user: "1001:1001"
     command: ["./migrate", "-db", "/app/data/scm.db"]
     volumes:
@@ -32,7 +32,7 @@ services:
 
   # 3. One-shot seeder job
   scm-seed:
-    image: ghcr.io/se359-zeus/zeus-be/scm:v58
+    image: ghcr.io/se359-zeus/zeus-be/scm:v59
     user: "1001:1001"
     command: ["./seeder", "-db", "/app/data/scm.db", "-manifest-out", "/app/contracts/scm-manifest.json"]
     volumes:
@@ -51,7 +51,7 @@ services:
 
   # 5. scm  backend server
   scm-be:
-    image: ghcr.io/se359-zeus/zeus-be/scm:v58
+    image: ghcr.io/se359-zeus/zeus-be/scm:v59
     user: "1001:1001"
     network_mode: "service:tailscale"
     volumes:

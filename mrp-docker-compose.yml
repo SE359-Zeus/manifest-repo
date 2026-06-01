@@ -23,7 +23,7 @@ services:
 
   # 2. One-shot migration job
   mrp-migrate:
-    image: ghcr.io/se359-zeus/zeus-be/mrp:v48
+    image: ghcr.io/se359-zeus/zeus-be/mrp:v49
     user: "1001:1001"
     command: ["./migrate", "-db", "/app/data/mrp.db"]
     volumes:
@@ -32,7 +32,7 @@ services:
 
   # 3. One-shot seeder job
   mrp-seed:
-    image: ghcr.io/se359-zeus/zeus-be/mrp:v48
+    image: ghcr.io/se359-zeus/zeus-be/mrp:v49
     user: "1001:1001"
     command: ["./seeder", "-db", "/app/data/mrp.db", "-manifest", "/app/contracts/scm-manifest.json"]
     volumes:
@@ -51,7 +51,7 @@ services:
 
   # 5. MRP backend server
   mrp-be:
-    image: ghcr.io/se359-zeus/zeus-be/mrp:v48
+    image: ghcr.io/se359-zeus/zeus-be/mrp:v49
     user: "1001:1001"
     network_mode: "service:tailscale"
     volumes:

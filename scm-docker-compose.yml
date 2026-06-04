@@ -51,7 +51,7 @@ services:
 
   # 5. scm  backend server
   scm-be:
-    image: ghcr.io/se359-zeus/zeus-be/scm:v111
+    image: ghcr.io/se359-zeus/zeus-be/scm:v113
     user: "1001:1001"
     network_mode: "service:tailscale"
     volumes:
